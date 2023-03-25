@@ -1,0 +1,51 @@
+TABELE:
+users{
+    _id
+    name: string,
+    password: string,
+    email: string
+}
+teams{
+    _id,
+    name: string,
+    players: Player[],
+    fixtures: {
+        vs: team_id,
+        home: boolean
+    }[33]
+}
+fantasy-teams{
+    _id,
+    user_id: string,
+    name: string,
+    players: Player[15],
+    gw_points: number[],
+    transfers: number,
+    leagues: string[] //ids of leagues
+}
+players{
+    _id,
+    team_id:string,
+    name:string,
+    position:string,
+    gw_points: {
+        points: number,
+        mins_played:number,
+        goals:number,
+        assists:number,
+        clean_sheets:number,
+        goals_conceded:number,
+        saves:number,
+        yellow_card:number,
+        red_cards:number,
+    }[],
+    price: number,
+    owenership:number,
+    info:string //injured or something like that
+}
+leagues{
+    _id,
+    name:string,
+    participants:string[], //user_id-s
+    public:boolean
+}

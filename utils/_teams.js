@@ -1,5 +1,6 @@
 const Teams = require("../models/Teams");
 const Player = require("../models/Player");
+const MyTeam = require("../models/MyTeam");
 
 const getTeam = async (req, res) => {
   let body = req.body;
@@ -51,9 +52,31 @@ const getListOfPlayers = async (req, res) => {
   }
 };
 
-const createNewTeam = async (req, res) => {};
+const createNewTeam = async (req, res) => {
+  try {
+    console.log(req.user._id);
+    //provjeriti da li postoji vec tim sa IDom od usera
+    const myNewTeam = new MyTeam({
+      user_id: req.user_id,
+      name: "body.name",
+      players: [],
+      gw_history: [],
+      free_transfers: 2,
+      total_points: 0,
+      leagues: [],
+    });
+
+    myNewTeam.save();
+  } catch (err) {
+    return res.status(500).json({
+      message: "Unable To Finish",
+      success: false,
+    });
+  }
+};
 module.exports = {
   getTeam,
   getTeams,
   getListOfPlayers,
+  createNewTeam,
 };

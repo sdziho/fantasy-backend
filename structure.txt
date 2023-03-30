@@ -21,6 +21,7 @@ fantasy-teams{
     players: Player[15],
     gw_points: number[],
     transfers: number,
+    total_points:number,
     leagues: string[] //ids of leagues
 }
 players{

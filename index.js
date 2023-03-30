@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require("./middlewares/passport")(passport);
 app.use("/api/users", require("./routes/users"));
 app.use("/api/teams", require("./routes/teams"));
+app.use("/api/players", require("./routes/players"));
 const startApp = async () => {
   try {
     await connect(DB, {

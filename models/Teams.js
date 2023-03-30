@@ -7,7 +7,7 @@ const FixtureSchema = new mongoose.Schema({
 });
 const TeamsSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  players: { type: [Player.schema], required: true },
+  players: { type: [String], required: true },
   fixtures: { type: [FixtureSchema], required: false },
 });
 module.exports = mongoose.model("teams", TeamsSchema);

@@ -14,6 +14,7 @@ require("./middlewares/passport")(passport);
 app.use("/api/users", require("./routes/users"));
 app.use("/api/teams", require("./routes/teams"));
 app.use("/api/players", require("./routes/players"));
+app.use("/api/my-team", require("./routes/my_team"));
 const startApp = async () => {
   try {
     await connect(DB, {

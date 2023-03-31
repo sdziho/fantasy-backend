@@ -9,17 +9,20 @@ const GW_HISTORY_SCHEMA = new mongoose.Schema({
   active: { type: Boolean, required: true },
 });
 
-const MyTeamSchema = new mongoose.Schema({
-  user_id: { type: String, required: true },
-  name: { type: String, required: true },
-  players: {
-    type: [String],
-    required: true,
-    validate: [playersLengthValidator, "15 Players required"],
+const MyTeamSchema = new mongoose.Schema(
+  {
+    user_id: { type: String, required: true },
+    name: { type: String, required: true },
+    players: {
+      type: [String],
+      required: true,
+      validate: [playersLengthValidator, "15 Players required"],
+    },
+    gw_history: { type: [GW_HISTORY_SCHEMA], required: true },
+    free_transfers: { type: Number, required: true },
+    total_points: { type: Number, required: true },
+    leagues: { type: [String], required: true },
   },
-  gw_history: { type: [GW_HISTORY_SCHEMA], required: true },
-  free_transfers: { type: Number, required: true },
-  total_points: { type: Number, required: true },
-  leagues: { type: [String], required: true },
-});
+  { versionKey: false }
+);
 module.exports = mongoose.model("fantasy_teams", MyTeamSchema);

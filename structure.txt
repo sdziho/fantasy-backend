@@ -50,3 +50,14 @@ leagues{
     participants:string[], //user_id-s
     public:boolean
 }
+fixture{
+    _id,
+    gameweek:number,
+    home:string,
+    away:string,
+    time:Date,
+    result:{
+        home:number,
+        away:number
+    }
+}

@@ -66,8 +66,7 @@ const createNewLeague = async (req, res) => {
       { returnOriginal: false }
     );
     return res.status(200).json({
-      message: "League Successifuly Created",
-      success: true,
+      code: newCode,
     });
   } catch (err) {
     return res.status(500).json({

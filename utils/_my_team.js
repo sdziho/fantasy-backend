@@ -26,6 +26,7 @@ const createNewTeam = async (req, res) => {
     });
 
     myNewTeam.save();
+    //UPDATE OWNERSHIP
     return res.status(200).json({
       message: "Team Successifuly Created",
       success: true,

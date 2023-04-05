@@ -1,7 +1,7 @@
 const Player = require("../models/Player");
 
-const validatePlayers = async (req, res, next) => {
-  const players = req.body.players; // assuming players are in the request body
+const validateMyTeam = async (req, res, next) => {
+  const players = req.body.players;
 
   // Check if there are any duplicate players
   const uniquePlayers = new Set(players);
@@ -34,5 +34,5 @@ const validatePlayers = async (req, res, next) => {
 };
 
 module.exports = {
-  validatePlayers,
+  validateMyTeam,
 };

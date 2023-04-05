@@ -15,6 +15,7 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/teams", require("./routes/teams"));
 app.use("/api/players", require("./routes/players"));
 app.use("/api/my-team", require("./routes/my_team"));
+app.use("/api/leagues", require("./routes/leagues"));
 const startApp = async () => {
   try {
     await connect(DB, {

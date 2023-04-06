@@ -109,6 +109,17 @@ const getPlayers = async (req, res) => {
     });
   }
 };
+const getPlayer = async (req, res) => {
+  try {
+    const player = await Player.findById(req.body._id);
+    return res.status(200).json(player);
+  } catch (err) {
+    return res.status(500).json({
+      message: "Unable To Finish",
+      success: false,
+    });
+  }
+};
 const addPlayerInfo = async (req, res) => {
   let body = req.body;
   try {
@@ -182,4 +193,5 @@ module.exports = {
   getPlayers,
   addGameweekPoints,
   addPlayerInfo,
+  getPlayer,
 };

@@ -3,12 +3,16 @@ const { userAuth } = require("../utils/Auth");
 const {
   addPlayer,
   getPlayers,
+  getPlayer,
   addGameweekPoints,
   addPlayerInfo,
 } = require("../utils/_players");
 
 router.get("/all", userAuth, async (req, res) => {
   await getPlayers(req, res);
+});
+router.get("/get-player", userAuth, async (req, res) => {
+  await getPlayer(req, res);
 });
 
 //this should be only possible for admin

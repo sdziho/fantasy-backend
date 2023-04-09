@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
-const { SECRET } = require("../config");
+const { SECRET, ADMIN_SECRET } = require("../config");
 const User = require("../models/Users");
 
 // Register user
@@ -19,7 +19,10 @@ const userRegister = async (req, res) => {
     }
 
     // Create new user
-    user = new User({ name, email, password });
+
+    if (req.body.admin_secret === ADMIN_SECRET)
+      user = new User({ name, email, password, role: "admin" });
+    else user = new User({ name, email, password });
 
     // Hash password
     const salt = await bcrypt.genSalt(10);

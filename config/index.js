@@ -4,4 +4,5 @@ module.exports = {
   DB: process.env.APP_DB,
   PORT: process.env.APP_PORT,
   SECRET: process.env.APP_SECRET,
+  ADMIN_SECRET: process.env.APP_ADMIN_SECRET,
 };

@@ -5,6 +5,7 @@ const {
   getGameweekFixtures,
   addNewFixture,
 } = require("../utils/_fixtures");
+const { adminRole } = require("../middlewares/check_role");
 
 router.get("/", userAuth, async (req, res) => {
   await getAllFixtures(req, res);
@@ -14,7 +15,7 @@ router.get("/get-gameweek-fixture", userAuth, async (req, res) => {
 });
 
 //admin role
-router.post("/add-new-fixture", userAuth, async (req, res) => {
+router.post("/add-new-fixture", userAuth, adminRole, async (req, res) => {
   await addNewFixture(req, res);
 });
 
